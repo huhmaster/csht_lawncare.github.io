@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evergreen | lawn care reinvented</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1a1a1a;
+            text-transform: lowercase;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input, textarea {
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            margin-right: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-emerald-600">login to evergreen</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-black text-2xl">×</button>
+            </div>
+            <p class="mb-6 text-gray-500 text-sm italic">damn, you caught us. this part is still in dev. 😔</p>
+            <div class="space-y-4">
+                <input type="text" placeholder="username" class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-emerald-500">
+                <input type="password" placeholder="password" class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-emerald-500">
+                <button onclick="alert('not yet, chief 🙏')" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-xl hover:bg-emerald-700 transition">sign in</button>
+            </div>
+            <div class="mt-6 text-center text-xs text-gray-400">
+                don't have an account? oh shit, too bad.
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 glass-card px-8 py-4 flex items-center shadow-sm">
+        <div class="text-2xl font-extrabold text-emerald-600 flex items-center gap-2">
+            <i class="fas fa-leaf"></i> evergreen
+        </div>
+        <div class="nav-links hidden md:flex gap-10 font-medium">
+            <a href="#services" class="hover:text-emerald-500 transition">services</a>
+            <a href="#plans" class="hover:text-emerald-500 transition">plans</a>
+            <a href="#schedule" class="hover:text-emerald-500 transition">schedule</a>
+        </div>
+        <button onclick="openModal()" class="bg-emerald-600 text-white px-6 py-2 rounded-full font-bold hover:bg-emerald-700 transition">get a quote</button>
+    </nav>
+
+    <section class="hero-gradient min-h-screen flex items-center justify-center text-white pt-20 px-6">
+        <div class="max-w-4xl text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                your lawn, but actually green this time 🔥
+            </h1>
+            <p class="text-xl mb-10 opacity-90">
+                we don't just spray chemicals and leave. we engineer the perfect outdoor space for your flex. professional care, zero stress.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <input type="text" placeholder="enter your zip code" class="px-6 py-4 rounded-full text-black w-full md:w-80 outline-none">
+                <button onclick="openModal()" class="bg-white text-emerald-600 font-bold px-10 py-4 rounded-full hover:bg-emerald-50 transition shadow-xl">
+                    check availability 🙏
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16">what we do damn well</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-emerald-50">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fas fa-vial"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">precision fertilization</h3>
+                <p class="text-gray-600">we analyze your soil like scientists to give it exactly what it needs to pop.</p>
+            </div>
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-emerald-50">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">weed termination</h3>
+                <p class="text-gray-600">say goodbye to dandelions and crabgrass. we delete them from the server.</p>
+            </div>
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-emerald-50">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">core aeration</h3>
+                <p class="text-gray-600">let your lawn breathe. we punch holes so oxygen and water can reach the roots.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="py-24 px-6 bg-white border-y border-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6 italic">when are we pulling up? ⁉️</h2>
+            <div class="bg-gray-50 p-10 rounded-3xl border-2 border-dashed border-emerald-200">
+                <p class="text-2xl font-semibold text-emerald-600 mb-4">we're free all the time.</p>
+                <p class="text-gray-500 mb-8">seriously. we're available 24/7 for your lawn needs.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="px-6 py-3 bg-red-100 text-red-600 rounded-full font-bold opacity-50 line-through">mondays (locked)</div>
+                    <div class="px-6 py-3 bg-red-100 text-red-600 rounded-full font-bold opacity-50 line-through">tuesdays (locked)</div>
+                    <div class="px-6 py-3 bg-emerald-100 text-emerald-600 rounded-full font-bold">wednesdays</div>
+                    <div class="px-6 py-3 bg-emerald-100 text-emerald-600 rounded-full font-bold">thursdays</div>
+                    <div class="px-6 py-3 bg-emerald-100 text-emerald-600 rounded-full font-bold">fridays</div>
+                    <div class="px-6 py-3 bg-emerald-100 text-emerald-600 rounded-full font-bold">weekends</div>
+                </div>
+                <p class="mt-8 text-xs text-gray-400 italic">except on tuesdays and mondays. we gotta sleep and touch grass too. 😔</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="plans" class="bg-gray-50 py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">choose your vibe</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2">essential</h3>
+                    <div class="text-4xl font-extrabold mb-6">$29<span class="text-lg text-gray-400">/mo</span></div>
+                    <button onclick="openModal()" class="w-full py-4 border-2 border-emerald-600 text-emerald-600 font-bold rounded-xl hover:bg-emerald-600 hover:text-white transition">start here</button>
+                </div>
+                <div class="bg-emerald-600 p-10 rounded-3xl shadow-2xl text-white transform scale-105">
+                    <h3 class="text-xl font-bold mb-2">pro performance</h3>
+                    <div class="text-4xl font-extrabold mb-6">$49<span class="text-lg text-emerald-200">/mo</span></div>
+                    <button onclick="openModal()" class="w-full py-4 bg-white text-emerald-600 font-bold rounded-xl hover:bg-gray-100 transition">get the best 🔥</button>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-2">elite garden</h3>
+                    <div class="text-4xl font-extrabold mb-6">$89<span class="text-lg text-gray-400">/mo</span></div>
+                    <button onclick="openModal()" class="w-full py-4 border-2 border-emerald-600 text-emerald-600 font-bold rounded-xl hover:bg-emerald-600 hover:text-white transition">go elite</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6 text-center">
+        <div class="text-2xl font-bold text-white mb-6 flex justify-center items-center gap-2">
+            <i class="fas fa-leaf"></i> evergreen
+        </div>
+        <p>© 2026 evergreen lawn care inc. all rights reserved.</p>
+        <button onclick="openModal()" class="text-xs mt-4 opacity-50 underline">admin login</button>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('loginModal');
+
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close on outside click
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
